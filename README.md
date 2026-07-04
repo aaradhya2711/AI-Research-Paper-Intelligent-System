@@ -125,7 +125,7 @@ The entities are classified into categories such as:
 This approach is more flexible than rule-based NER because it can infer categories for previously unseen entities. However, its predictions may sometimes be less accurate for highly technical terms.
 
 
-### Approach 3: Hybrid Named Entity Recognition for Technical Entity Extraction
+#### Approach 3: Hybrid Named Entity Recognition for Technical Entity Extraction
 
 A hybrid NER approach was developed by extending spaCy's `EntityRuler` with a larger set of domain-specific technical patterns.
 
