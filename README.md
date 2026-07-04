@@ -82,7 +82,7 @@ Example Output:
 
 ### 7. Named Entity Recognition (NER)
 
-To make the project more informative, two different approaches for Named Entity Recognition were implemented.
+To make the project more informative, three different approaches for Named Entity Recognition were implemented.
 
 #### Approach 1: Custom Technical NER using spaCy EntityRuler
 
@@ -105,7 +105,13 @@ This approach was useful for recognizing domain-specific technical entities that
 
 A transformer-based approach was implemented using `facebook/bart-large-mnli`.
 
-This approach automatically classifies entities into categories such as:
+This approach:
+
+- Extracts entities and noun phrases from text.
+- Uses Zero-Shot Classification to automatically assign labels.
+- Predicts entity categories without manually defining patterns.
+
+The entities are classified into categories such as:
 
 - PROGRAMMING_LANGUAGE
 - FRAMEWORK
@@ -116,8 +122,34 @@ This approach automatically classifies entities into categories such as:
 - TASK
 - VECTOR_DATABASE
 
-Unlike rule-based systems, this approach attempts to infer the entity category directly from the text without manually defining patterns.
+This approach is more flexible than rule-based NER because it can infer categories for previously unseen entities. However, its predictions may sometimes be less accurate for highly technical terms.
 
+
+### Approach 3: Hybrid Named Entity Recognition for Technical Entity Extraction
+
+A hybrid NER approach was developed by extending spaCy's `EntityRuler` with a larger set of domain-specific technical patterns.
+
+This approach recognizes:
+
+- Programming Languages
+- Frameworks
+- Libraries
+- Models
+- Methods
+- Applications
+- Tasks
+- Vector Databases
+
+Example entities extracted:
+
+- Sentence Transformers → LIBRARY
+- KeyBERT → LIBRARY
+- semantic similarity search → METHOD
+- medical image analysis → APPLICATION
+- Named Entity Recognition → METHOD
+- The Semantic Research Paper Search Engine → APPLICATION
+
+This approach provided more accurate and domain-specific technical entity extraction by extending rule-based NER with a broader set of technical patterns and entities.
 
 ## Technologies Used
 
@@ -179,7 +211,9 @@ This project helped me understand how different NLP techniques can be integrated
 - Vector Databases using FAISS
 - Transformer-based Summarization
 - Keyword Extraction
-- Named Entity Recognition
+- Rule-based Named Entity Recognition
+- Zero-Shot Entity Classification
+- Hybrid Technical Entity Extraction
 - Building complete NLP pipelines
 
 
@@ -189,6 +223,7 @@ This project helped me understand how different NLP techniques can be integrated
 - Allow users to upload and analyze their own research papers.
 - Implement paper recommendation systems.
 - Add paper comparison and citation generation features.
+- Improve technical entity extraction using domain-specific transformer models and knowledge graphs.
 
 
 ## Author
