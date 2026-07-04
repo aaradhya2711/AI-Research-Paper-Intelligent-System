@@ -1,0 +1,11 @@
+pandas
+numpy
+datasets
+sentence-transformers
+faiss-cpu
+transformers
+torch
+keybert
+spacy
+scikit-learn
+scispacy
